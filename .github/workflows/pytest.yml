@@ -8,5 +8,5 @@ jobs:
       - name: Set up Python for Demo
         uses: actions/setup-python@v4
       - name: Run tests
-        run: pytest TP1/test.py
+        run: pytest /bureltho/tp-504/TP1/test.py
 
