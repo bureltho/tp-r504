@@ -1,15 +1,33 @@
 name: tests unitaires
 on: [push]
+
 jobs:
   test1:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.10"]  
+
     steps:
       - uses: actions/checkout@v3
+
       - name: Set up Python for Demo
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: ${{ matrix.python-version }}
+
       - name: Install pytest
         run: pip install pytest
+
+      - name: Show branch and OS
+        run: |
+          echo "Branch: ${{ github.ref_name }}"
+          echo "OS: ${{ runner.os }}"
+
+      - name: Show Python version
+        run: python --version
+
       - name: Run tests
-        run: python3 -m pytest TP1/test.py -v
+        run: python -m pytest TP1/test.py -v
+
+
