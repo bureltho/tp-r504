@@ -11,19 +11,15 @@ db_config = {
     'database': 'demosql'
 }
 
-# Initialize MySQL connection
 conn = mysql.connector.connect(**db_config)
 cursor = conn.cursor() 
 
 
 @app.route('/')
 def index():
-    # Sample query
     query = "SELECT * FROM myTable"
     cursor.execute(query)
     data = cursor.fetchall()
-    
-    # Close the cursor and connection
     cursor.close()
     conn.close()
     
