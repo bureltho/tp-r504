@@ -1,0 +1,8 @@
+téléphone
+grep -P --color "^[1]?[( -]?\d{3}[) -]?\d{3}[ -]?\d{4}$" no_tel_USA.txt
+
+
+
+adresse ip 
+a="(2[0-4]\d|25[0-5]|1\d\d|[1-9]\d?|0)"
+grep -P --color "^$a\.$a\.$a\.$a$" adresses_ipv4_2.txt 
